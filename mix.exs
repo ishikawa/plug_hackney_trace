@@ -15,7 +15,8 @@ defmodule PlugHackneyTrace.MixProject do
 
   defp package do
     [
-      licenses: ["MIT"]
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/ishikawa/plug_hackney_trace"}
     ]
   end
 
