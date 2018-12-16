@@ -12,7 +12,7 @@ defmodule Plug.HackneyTrace.Helpers do
           | {:error, reason :: term}
   def generate_temporary_filepath() do
     with {:ok, dir} <- tmp_dir(),
-         {:ok, name} <- generate_temporary_filename() do
+         name = generate_temporary_filename() do
       Path.join(dir, name)
     end
   end
@@ -28,9 +28,7 @@ defmodule Plug.HackneyTrace.Helpers do
     end
   end
 
-  @spec generate_temporary_filename() ::
-          {:ok, String.t()}
-          | {:error, reason :: term}
+  @spec generate_temporary_filename() :: String.t
   def generate_temporary_filename() do
     pid = System.get_pid()
     time = System.monotonic_time(:microseconds)
