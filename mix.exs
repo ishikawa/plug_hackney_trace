@@ -22,6 +22,7 @@ defmodule PlugHackneyTrace.MixProject do
     [
       {:plug, "~> 1.7"},
       {:hackney, "~> 1.1"},
+      {:mock, "~> 0.3.0", only: :test},
       {:ex_doc, "~> 0.19.1", only: :docs},
       {:dialyxir, "~> 1.0.0-rc.4", only: [:dev], runtime: false}
     ]
