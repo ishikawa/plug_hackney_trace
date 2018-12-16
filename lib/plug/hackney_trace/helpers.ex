@@ -1,8 +1,10 @@
 defmodule Plug.HackneyTrace.Helpers do
   @moduledoc false
 
-  # The number of bytes for random bytes
-  @n_rand_bytes 32
+  use Bitwise, only_operators: true
+
+  # The maximum value of random ID
+  @max_random_id 1 <<< 32
 
   # The prefix for a temporary file
   @filename_prefix "hackney_trace"
@@ -32,19 +34,15 @@ defmodule Plug.HackneyTrace.Helpers do
   def generate_temporary_filename() do
     pid = System.get_pid()
     time = System.monotonic_time(:microseconds)
-    uid = generate_uid()
+    id = generate_random_id()
 
-    "#{@filename_prefix}-#{pid}-#{time}-#{uid}"
+    "#{@filename_prefix}-#{pid}-#{time}-#{id}"
   end
 
-  @spec generate_uid() :: String.t()
-  def generate_uid() do
-    try do
-      :crypto.strong_rand_bytes(@n_rand_bytes)
-      |> Base.encode16(case: :lower)
-    catch
-      :error, :low_entropy ->
-        to_string(System.unique_integer([:positive]))
-    end
+  @spec generate_random_id() :: pos_integer
+  def generate_random_id() do
+    # :crypto.strong_rand_bytes/1 uses the OS entropy source, which is
+    # relatively slow and may throw exception in certain conditions.
+    :rand.uniform(@max_random_id)
   end
 end
