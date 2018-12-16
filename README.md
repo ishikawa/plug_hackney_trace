@@ -2,6 +2,8 @@
 
 A plug to enable `hackney_trace` in [hackney](https://github.com/benoitc/hackney).
 
+With this plug, you can easily enable `hackney_trace` for your desired controller or the specific action. Furthermore, this plug automatically handles the output of `hackney_trace` and convert it into Elixir `String`. You can log it or handle by your own function.
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
