@@ -7,8 +7,15 @@ defmodule PlugHackneyTrace.MixProject do
       version: "0.1.0",
       elixir: "~> 1.7",
       description: "A plug to enable hackney_trace",
+      package: package(),
       start_permanent: Mix.env() == :prod,
       deps: deps()
+    ]
+  end
+
+  defp package do
+    [
+      licenses: ["MIT"]
     ]
   end
 

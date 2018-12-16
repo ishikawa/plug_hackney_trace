@@ -1,17 +1,17 @@
-defmodule Plug.HackneyTrace do
+defmodule PlugHackneyTrace do
   @moduledoc """
   A plug to enable `hackney_trace` in [hackney](https://github.com/benoitc/hackney).
 
   To use it, just plug it into the desired module.
 
   ```
-  plug Plug.HackneyTrace, trace: :min
+  plug PlugHackneyTrace, trace: :min
   ```
 
   In a Phoenix powered project, you can plug it into a specific action.
 
   ```
-  plug Plug.HackneyTrace when action in [:show]
+  plug PlugHackneyTrace when action in [:show]
   ```
 
   ## Logging
@@ -20,13 +20,13 @@ defmodule Plug.HackneyTrace do
   pass an `atom` for `log` option, this module will log the contents with `Logger` module.
 
   ```
-  plug Plug.HackneyTrace, log: :info
+  plug PlugHackneyTrace, log: :info
   ```
 
   Or you can specify the custom function for handle the output of `hackney_trace`.
 
   ```
-  plug Plug.HackneyTrace, log: fn contents -> ... end
+  plug PlugHackneyTrace, log: fn contents -> ... end
   ```
 
   ## Options
@@ -36,7 +36,7 @@ defmodule Plug.HackneyTrace do
   * `:trace` - The trace level for `hackney_trace`. Default is `:max`.
   """
 
-  import Plug.HackneyTrace.Helpers
+  import PlugHackneyTrace.Helpers
 
   require Logger
 

@@ -1,7 +1,7 @@
-defmodule Plug.HackneyTrace.HelpersTest do
+defmodule PlugHackneyTrace.HelpersTest do
   use ExUnit.Case, async: true
 
-  alias Plug.HackneyTrace.Helpers
+  alias PlugHackneyTrace.Helpers
   doctest Helpers
 
   import Mock

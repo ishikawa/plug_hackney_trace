@@ -1,4 +1,4 @@
-# Plug.HackneyTrace
+# PlugHackneyTrace
 
 A plug to enable `hackney_trace` in [hackney](https://github.com/benoitc/hackney).
 
@@ -20,13 +20,13 @@ end
 To use it, just plug it into the desired module.
 
 ```elixir
-plug Plug.HackneyTrace, trace: :min
+plug PlugHackneyTrace, trace: :min
 ```
 
 In a Phoenix powered project, you can plug it into a specific action.
 
 ```elixir
-plug Plug.HackneyTrace when action in [:show]
+plug PlugHackneyTrace when action in [:show]
 ```
 
 ## License

@@ -1,4 +1,4 @@
-defmodule Plug.HackneyTrace.Helpers do
+defmodule PlugHackneyTrace.Helpers do
   @moduledoc false
 
   use Bitwise, only_operators: true
