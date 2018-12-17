@@ -12,6 +12,7 @@ end
 
 defmodule PlugHackneyTraceTest do
   use ExUnit.Case, async: true
+  use Plug.Test
 
   doctest PlugHackneyTrace
 
@@ -19,6 +20,14 @@ defmodule PlugHackneyTraceTest do
     test "pass options" do
       assert PlugHackneyTrace.init([]) == []
       assert PlugHackneyTrace.init(trace: :min) == [trace: :min]
+    end
+  end
+
+  describe "call" do
+    test "call" do
+      # TODO check log output
+      conn(:get, "/")
+      |> PlugHackneyTraceTest.Exmaple.call([])
     end
   end
 end
