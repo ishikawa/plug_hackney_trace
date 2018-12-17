@@ -1,3 +1,15 @@
+defmodule PlugHackneyTraceTest.Exmaple do
+  use Plug.Builder
+
+  plug PlugHackneyTrace
+  plug :hello
+
+  def hello(conn, _opts) do
+    :hackney_trace.report_event(100, 'example trace', :example_trace, [:example_trace])
+    send_resp(conn, 200, "ok")
+  end
+end
+
 defmodule PlugHackneyTraceTest do
   use ExUnit.Case, async: true
 
